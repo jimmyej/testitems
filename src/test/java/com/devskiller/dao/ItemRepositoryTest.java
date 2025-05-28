@@ -21,8 +21,8 @@ public class ItemRepositoryTest {
 
     @Test
     public void shouldReturnItemsWithAverageRating() {
-        assertThat(itemRepository.findItemsWithAverageRatingLowerThan(10.0)).hasSize(10);
-        assertThat(itemRepository.findItemsWithAverageRatingLowerThan(1.0)).hasSize(1);
+        assertThat(itemRepository.findByItemWithAverageRatingLowerThan(10.0)).hasSize(10);
+        assertThat(itemRepository.findByItemWithAverageRatingLowerThan(1.0)).hasSize(1);
     }
 
     @BeforeEach

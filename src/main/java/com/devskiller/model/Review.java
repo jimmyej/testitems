@@ -2,16 +2,13 @@ package com.devskiller.model;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Review {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   private Double rating;
@@ -19,9 +16,12 @@ public class Review {
   @Length(max=200)
   private String comment;
 
+  @ManyToOne
+  @JoinColumn(name="item_id", referencedColumnName = "id", insertable = false, updatable = false)
   private Item item;
 
   @ManyToOne(optional = false)
+  @JoinColumn(name = "user_id")
   private User author;
 
   public Review() {

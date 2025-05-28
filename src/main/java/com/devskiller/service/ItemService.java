@@ -22,7 +22,7 @@ public class ItemService {
         List<Item> items;
         List<String> titles;
         try {
-            items = itemRepository.findItemsWithAverageRatingLowerThan(rating);
+            items = itemRepository.findByItemWithAverageRatingLowerThan(rating);
             titles = items.stream().map(Item::getTitle).collect(Collectors.toList());
         } catch (Exception e) {
             throw new UnsupportedOperationException();

@@ -9,7 +9,7 @@ import java.util.Set;
 public class Item {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @Column(length = 100)
@@ -19,9 +19,8 @@ public class Item {
   @Column(length = 200)
   private String description;
 
-  @OneToMany(mappedBy = "item", orphanRemoval = true, fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
   Set<Review> reviews = new HashSet<>();
-
   public Item() {
   }
 

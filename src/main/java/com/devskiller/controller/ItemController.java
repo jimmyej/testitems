@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/items")
 public class ItemController {
 
-    private ItemService service;
+    private final ItemService service;
 
     @Autowired
     public ItemController(ItemService service){

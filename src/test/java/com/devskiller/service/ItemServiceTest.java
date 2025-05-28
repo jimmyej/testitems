@@ -19,7 +19,7 @@ public class ItemServiceTest {
     @Test
     public void returnsTitlesBasedOnItemsFromPersistenceLayer() {
         Double rating = 10.0;
-        given(itemRepository.findItemsWithAverageRatingLowerThan(rating))
+        given(itemRepository.findByItemWithAverageRatingLowerThan(rating))
                 .willReturn(newArrayList(new Item("title1", "desc1"), new Item("title2", "desc2")));
 
         List<String> titles = itemService.getTitlesWithAverageRatingLowerThan(rating);
